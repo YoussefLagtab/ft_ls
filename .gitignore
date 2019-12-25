@@ -1,0 +1,7 @@
+**/*.o
+**/*test*
+tests/
+.vscode
+ft_ls
+libft/libft.a
+a.out
