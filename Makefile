@@ -71,7 +71,7 @@ clean:
 
 fclean: clean
 	@make fclean -C libft/
-	@if [ -a $(NAME) ]; then \
+	@if [ -f $(NAME) ]; then \
 		echo "$(RED)PROGRAM$(RESET) $(NAME): $(RED)REMOVED!$(RESET)"; \
 		rm -f $(NAME); \
 	fi;

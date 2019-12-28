@@ -106,7 +106,7 @@ clean:
 	fi;
 
 fclean: clean
-	@if [ -a $(NAME) ]; then \
+	@if [ -f $(NAME) ]; then \
 		echo "$(RED)LIB$(RESET) $(NAME): $(RED)REMOVED!$(RESET)"; \
 		rm -f $(NAME); \
 	fi;
