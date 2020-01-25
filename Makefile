@@ -6,7 +6,7 @@
 #    By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/28 10:58:34 by ylagtab           #+#    #+#              #
-#    Updated: 2020/01/25 10:32:27 by ylagtab          ###   ########.fr        #
+#    Updated: 2020/01/25 10:35:06 by ylagtab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS = -Wall -Wextra -Werror
 CC = gcc
 
 INC = ft_ls.h includes/typedefs_macros.h
-OBJ =	main.o handle_errors.o
+OBJ =	main.o parser.o handle_errors.o
 LS_OBJ = $(addprefix $(OBJS_DIR)/, ${OBJ})
 
 # objects directory
