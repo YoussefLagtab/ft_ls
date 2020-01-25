@@ -6,7 +6,7 @@
 #    By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/28 10:58:34 by ylagtab           #+#    #+#              #
-#    Updated: 2019/12/21 12:54:36 by ylagtab          ###   ########.fr        #
+#    Updated: 2020/01/25 10:32:27 by ylagtab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,13 @@ CFLAGS = -Wall -Wextra -Werror
 CC = gcc
 
 INC = ft_ls.h includes/typedefs_macros.h
-OBJ =	main.o
+OBJ =	main.o handle_errors.o
 LS_OBJ = $(addprefix $(OBJS_DIR)/, ${OBJ})
 
 # objects directory
 OBJS_DIR = objs
 
-# Colors
+# colors
 BLACK	= \033[30m
 RED		= \033[31m
 GREEN	= \033[32m

@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   handle_errors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/28 10:55:09 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/01/25 10:32:10 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/01/25 10:24:28 by ylagtab           #+#    #+#             */
+/*   Updated: 2020/01/25 10:26:12 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS_H
-# define FT_LS_H
+#include "ft_ls.h"
 
-# include "dirent.h"
-# include "libft/libft.h"
-# include "includes/typedefs_macros.h"
-
-void	handle_opt_err(char option);
-
-#endif
+void	handle_opt_err(char option)
+{
+	ft_printf("ls: illegal option -- %c\nusage: [-Radert] [file ...]", option);
+	exit(1);
+}
