@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 10:23:55 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/01/25 10:31:06 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/01/26 21:43:00 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ static void	parse_opt(t_args *ls_args, char *opt_str)
 	}
 }
 
-static int	parse_options(t_args *ls_args, char **av, int size)
+static int	parse_options(t_args *ls_args, char **av)
 {
 	int i;
 
 	i = 0;
-	while (i < size)
+	while (av[i] != NULL)
 	{
 		if (av[i][0] == '-' && av[i][1] == '-' && av[i][2] == '\0')
 			return (i + 1);
@@ -50,9 +50,10 @@ static int	parse_options(t_args *ls_args, char **av, int size)
 	return (i);
 }
 
-void		parse_args(t_args *ls_args, char **av, int size)
+void		ft_parse(t_args *ls_args, char **av, int size)
 {
-	int i;
+	int	i;
 
-	i = parse_options(ls_args, av, size);
+	(void)size;
+	i = parse_options(ls_args, av);
 }
