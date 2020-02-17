@@ -5,3 +5,4 @@ tests/
 ft_ls
 libft/libft.a
 a.out
+*.dSYM
