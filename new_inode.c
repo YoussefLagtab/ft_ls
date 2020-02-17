@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   new_inode.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/28 10:54:42 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/17 16:54:48 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/02/02 11:21:57 by ylagtab           #+#    #+#             */
+/*   Updated: 2020/02/17 16:14:44 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		main(int ac, char **av)
+t_inode	*new_inode(t_inode *inode, struct stat *st, char *path, char *name)
 {
-	t_args		ls_args;
-
-	(void)ac;
-	ft_bzero(&ls_args, sizeof(ls_args));
-	ft_parse(&ls_args, av + 1);
-	ft_flush_buff();
-	return (errno > 0 ? 1 : 0);
+	ft_bzero(inode, sizeof(t_inode));
+	inode->st = *st;
+	ft_strncpy(inode->path, path, PATH_MAX);
+	ft_strncpy(inode->name, name, NAME_MAX);
+	return (inode);
 }

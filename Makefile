@@ -6,7 +6,7 @@
 #    By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/28 10:58:34 by ylagtab           #+#    #+#              #
-#    Updated: 2020/01/25 10:35:06 by ylagtab          ###   ########.fr        #
+#    Updated: 2020/02/17 17:05:11 by ylagtab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS = -Wall -Wextra -Werror
 CC = gcc
 
 INC = ft_ls.h includes/typedefs_macros.h
-OBJ =	main.o parser.o handle_errors.o
+OBJ =	main.o parser.o handle_link.o new_inode.o new_error.o
 LS_OBJ = $(addprefix $(OBJS_DIR)/, ${OBJ})
 
 # objects directory
@@ -45,7 +45,7 @@ RESET	= \033[0m
 # **************************************************************************** #
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(LS_OBJ)
+$(NAME): libft $(LS_OBJ)
 	@$(CC) $(CFLAGS) $(LS_OBJ) $(LIBFT) -o $(NAME)
 	@echo "$(GREEN)PROGRAM$(RESET) $(NAME): $(GREEN)UPDATED!$(RESET)";
 
@@ -59,8 +59,8 @@ $(OBJS_DIR):
 		mkdir $(OBJS_DIR); \
 	fi;
 
-$(LIBFT):
-	@make -C libft/
+libft:
+	make -C libft/
 
 clean:
 	@make clean -C libft/
@@ -78,4 +78,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all fclean re clean
+.PHONY: all fclean re clean libft
