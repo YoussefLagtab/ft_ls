@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 16:37:23 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/17 16:58:02 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/02/19 15:00:50 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		handle_link(t_inode *inode, t_args *ls_args)
 	end_with_slash = inode->name[ft_strlen(inode->name) - 1] == '/';
 	if (is_symlink_to_dir(inode->name))
 	{
-		if (!F_IS_SET(ls_args->options, OPT_L) || end_with_slash)
+		if (!F_IS_SET(g_options, OPT_L) || end_with_slash)
 			ft_enqueue(&(ls_args->dirs), &inode, sizeof(t_inode));
 		return ;
 	}

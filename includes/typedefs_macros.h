@@ -6,27 +6,33 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:53:26 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/17 16:54:14 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/02/19 16:50:18 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPEDEFS_MACROS_H
 # define TYPEDEFS_MACROS_H
 
-# define OPT_A 0
-# define OPT_L 1
-# define OPT_R 2
-# define OPT_CAP_R 3
-# define OPT_T 4
-# define OPT_1 5
-# define OPT_D 6
-# define F_IS_SET(x, f) ((x & (1 << f)) && 1)
-# define F_SET(x, f) (x |= (1 << f))
-# define F_UNSET(x, f) (x &= ~(1 << f))
+# define OPTIONS "1adlrRt"
+# define OPT_A 'a'
+# define OPT_L 'l'
+# define OPT_R 'r'
+# define OPT_CAP_R 'R'
+# define OPT_T 't'
+# define OPT_1 '1'
+# define OPT_D 'd'
+# define F_IS_SET(x, f) (x[f] == 1)
+# define F_SET(x, f) (x[f] = 1)
+# define F_UNSET(x, f) (x[f] = 0)
 # define PATH_MAX 1024
 # define NAME_MAX 255
+# define SIX_MONTHS 15724800
 
-typedef char	t_option;
+typedef int	(*t_cmp_func)(t_list*, t_list*);
+
+typedef char	t_bool;
+
+extern t_bool	g_options[256];
 
 typedef struct	s_inode
 {
@@ -43,7 +49,6 @@ typedef struct	s_error
 
 typedef struct	s_args
 {
-	t_option	options;
 	t_queue		errors;
 	t_queue		files;
 	t_queue		dirs;

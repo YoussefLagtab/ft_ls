@@ -6,7 +6,7 @@
 #    By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/28 10:58:34 by ylagtab           #+#    #+#              #
-#    Updated: 2020/02/17 17:05:11 by ylagtab          ###   ########.fr        #
+#    Updated: 2020/02/19 22:59:45 by ylagtab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,28 @@ NAME = ft_ls
 LIBFT = libft/libft.a
 
 # compilation variables
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 CC = gcc
 
 INC = ft_ls.h includes/typedefs_macros.h
-OBJ =	main.o parser.o handle_link.o new_inode.o new_error.o
+OBJ =	main.o \
+		parser.o \
+		handle_link.o \
+		new_inode.o \
+		new_error.o \
+		print_errors.o \
+		print_files.o \
+		print_files_longlist/fill_acl_ext.o \
+		print_files_longlist/fill_nlink.o \
+		print_files_longlist/fill_time.o \
+		print_files_longlist/print_files_longlist.o \
+		print_files_longlist/fill_file_details.o \
+		print_files_longlist/fill_perm.o \
+		print_files_longlist/fill_user_group.o \
+		print_files_longlist/fill_name.o \
+		print_files_longlist/fill_size.o \
+		print_files_longlist/print_file_details.o
+
 LS_OBJ = $(addprefix $(OBJS_DIR)/, ${OBJ})
 
 # objects directory
@@ -49,7 +66,8 @@ $(NAME): libft $(LS_OBJ)
 	@$(CC) $(CFLAGS) $(LS_OBJ) $(LIBFT) -o $(NAME)
 	@echo "$(GREEN)PROGRAM$(RESET) $(NAME): $(GREEN)UPDATED!$(RESET)";
 
-$(LS_OBJ): $(OBJS_DIR)/%.o : %.c $(INC) | $(OBJS_DIR)
+$(OBJS_DIR)/%.o : %.c $(INC) | $(OBJS_DIR)
+	@mkdir -p $(dir $@)
 	@gcc $(CFLAGS) -c $< -o $@
 	@echo "$(YELLOW)OBJ$(RESET) $@: $(YELLOW)UPDATED!$(RESET)";
 
@@ -60,7 +78,7 @@ $(OBJS_DIR):
 	fi;
 
 libft:
-	make -C libft/
+	@make -C libft/
 
 clean:
 	@make clean -C libft/

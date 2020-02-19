@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 10:55:09 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/17 17:09:50 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/02/19 23:04:51 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,22 @@
 # include <sys/acl.h>
 # include <sys/xattr.h>
 # include <unistd.h>
-# include <curses.h>
-# include <sys/ioctl.h>
-# include <limits.h>
 # include <errno.h>
 # include <dirent.h>
-# include <pwd.h>
-# include <grp.h>
 # include <time.h>
 # include "libft/libft.h"
+# include <stdio.h>
 # include "includes/typedefs_macros.h"
+# include "get_cmp_func/get_cmp_func.h"
 
-void	ft_parse(t_args *ls_args, char **av);
-t_inode	*new_inode(t_inode *inode, struct stat *st, char *path, char *name);
-t_error	*new_error(t_error *error, char *path);
-void	handle_link(t_inode *inode, t_args *ls_args);
+void		ft_parse(t_args *ls_args, char **av);
+t_inode		*new_inode(t_inode *inode, struct stat *st, char *path, char *name);
+t_error		*new_error(t_error *error, char *path);
+void		handle_link(t_inode *inode, t_args *ls_args);
+void		print_error(char *filename);
+void		print_errors(t_queue *errors);
+void		print_files(t_list *files);
+void		print_files_longlist(t_list *files_list, int is_dir);
+t_queue		*sort_list(t_queue *files, t_cmp_func cmp_func);
 
 #endif
