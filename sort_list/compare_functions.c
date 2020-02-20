@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   compare_functions.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/30 21:24:01 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/02/20 04:09:20 by ylagtab          ###   ########.fr       */
+/*   Created: 2019/12/27 16:35:16 by mel-idri          #+#    #+#             */
+/*   Updated: 2020/02/19 19:27:15 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "ft_ls.h"
 
-size_t	ft_strlen(const char *s)
+t_list	*min_list(t_list *list1, t_list *list2,
+		int (*comparator)(t_list*, t_list*))
 {
-	size_t i;
-
-	i = 0;
-	while (s && s[i])
-		i++;
-	return (i);
+	return (comparator(list1, list2) < 0 ? list1 : list2);
 }

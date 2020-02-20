@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   list_directories.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/30 21:24:01 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/02/20 04:09:20 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/02/19 23:24:50 by ylagtab           #+#    #+#             */
+/*   Updated: 2020/02/20 02:47:33 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#ifndef LIST_DIRECTORIES_H
+# define LIST_DIRECTORIES_H
 
-size_t	ft_strlen(const char *s)
-{
-	size_t i;
+# include "../ft_ls.h"
 
-	i = 0;
-	while (s && s[i])
-		i++;
-	return (i);
-}
+void	list_dir(t_inode *dir);
+void	list_subdirs(t_queue *inodes);
+void	get_dir_content(t_queue *dir_content, char *dir_path, t_inode *dir);
+
+#endif

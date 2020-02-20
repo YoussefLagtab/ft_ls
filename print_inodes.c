@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   print_inodes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/30 21:24:01 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/02/20 04:09:20 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/02/07 15:13:48 by mel-idri          #+#    #+#             */
+/*   Updated: 2020/02/20 02:34:29 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "ft_ls.h"
 
-size_t	ft_strlen(const char *s)
+void	print_inodes(t_queue *inodes, int is_dir)
 {
-	size_t i;
-
-	i = 0;
-	while (s && s[i])
-		i++;
-	return (i);
+	if (F_IS_SET(g_options, OPT_L))
+		print_inodes_longlist(inodes, is_dir);
+	else
+		print_inodes_default(inodes);
 }

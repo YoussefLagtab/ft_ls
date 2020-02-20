@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 14:58:12 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/02/19 19:37:58 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/02/19 23:10:39 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void		print_errors(t_queue *errors)
 	t_list	*tmp;
 	t_error *err;
 
+	sort_list(errors, compare_filename);
 	err_node = errors->head;
-	// sort_file_list(err_node, compare_filename);
 	while (err_node)
 	{
 		err = (t_error*)err_node->content;

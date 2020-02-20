@@ -6,7 +6,7 @@
 #    By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/28 10:58:34 by ylagtab           #+#    #+#              #
-#    Updated: 2020/02/19 22:59:45 by ylagtab          ###   ########.fr        #
+#    Updated: 2020/02/20 02:47:51 by ylagtab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,17 +29,29 @@ OBJ =	main.o \
 		new_inode.o \
 		new_error.o \
 		print_errors.o \
-		print_files.o \
-		print_files_longlist/fill_acl_ext.o \
-		print_files_longlist/fill_nlink.o \
-		print_files_longlist/fill_time.o \
-		print_files_longlist/print_files_longlist.o \
-		print_files_longlist/fill_file_details.o \
-		print_files_longlist/fill_perm.o \
-		print_files_longlist/fill_user_group.o \
-		print_files_longlist/fill_name.o \
-		print_files_longlist/fill_size.o \
-		print_files_longlist/print_file_details.o
+		print_inodes.o \
+		sort_list.o \
+		get_cmp_func/compare_atime.o \
+		get_cmp_func/compare_filename.o \
+		get_cmp_func/compare_mtime.o \
+		get_cmp_func/get_cmp_func.o \
+		list_directories/get_dir_content.o \
+		list_directories/list_dir.o \
+		list_directories/list_subdirs.o \
+		list_directories/list_directories.o \
+		print_inodes_default/print_one_entry_per_line.o \
+		print_inodes_default/print_inodes_default.o \
+		print_inodes_longlist/fill_acl_ext.o \
+		print_inodes_longlist/fill_nlink.o \
+		print_inodes_longlist/fill_time.o \
+		print_inodes_longlist/fill_perm.o \
+		print_inodes_longlist/fill_user_group.o \
+		print_inodes_longlist/fill_name.o \
+		print_inodes_longlist/fill_size.o \
+		print_inodes_longlist/fill_inode_details.o \
+		print_inodes_longlist/print_inode_details.o \
+		print_inodes_longlist/print_inodes_longlist.o \
+
 
 LS_OBJ = $(addprefix $(OBJS_DIR)/, ${OBJ})
 

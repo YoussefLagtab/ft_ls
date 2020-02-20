@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   list_directories.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/30 21:24:01 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/02/20 04:09:20 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/02/07 15:13:01 by mel-idri          #+#    #+#             */
+/*   Updated: 2020/02/20 02:39:29 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "list_directories.h"
 
-size_t	ft_strlen(const char *s)
+void		list_directories(t_queue *dirs)
 {
-	size_t i;
+	t_list *directory;
 
-	i = 0;
-	while (s && s[i])
-		i++;
-	return (i);
+	directory = dirs->head;
+	while (directory)
+	{
+		list_dir(((t_inode*)directory->content));
+		directory = directory->next;
+	}
 }

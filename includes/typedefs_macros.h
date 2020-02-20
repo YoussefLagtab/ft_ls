@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:53:26 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/19 16:50:18 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/02/19 23:13:54 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef int	(*t_cmp_func)(t_list*, t_list*);
 typedef char	t_bool;
 
 extern t_bool	g_options[256];
+extern int		g_is_multi_dir_mode;
 
 typedef struct	s_inode
 {
