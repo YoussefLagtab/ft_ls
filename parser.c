@@ -18,7 +18,7 @@ static void		exit_illegal_opt(char c)
 {
 	ft_printf(
 		"ft_ls: illegal option -- %c\n"
-		"usage: ft_ls [-1adlprtRd] [file ...]\n", c);
+		"usage: ft_ls [-1adlprtR] [file ...]\n", c);
 	exit(1);
 }
 
