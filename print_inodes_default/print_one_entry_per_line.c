@@ -15,14 +15,11 @@
 void	print_one_entry_per_line(t_queue *inodes)
 {
 	t_inode	*inode;
-	// t_list	*iter;
 
-	// iter = inodes->head;
 	while (inodes->length)
 	{
-		inode = (t_inode*)ft_dequeue(inodes);
+		inode = (t_inode*)ft_dequeue(inodes)->content;
 		ft_printf("%s\n", inode->name);
-		// iter = iter->next;
-		// free(inode);
+		free(inode);
 	}
 }
