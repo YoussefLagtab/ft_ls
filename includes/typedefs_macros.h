@@ -6,14 +6,14 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:53:26 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/19 23:13:54 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/02/22 21:59:16 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPEDEFS_MACROS_H
 # define TYPEDEFS_MACROS_H
 
-# define OPTIONS "1adlrRt"
+# define OPTIONS "1adlprtR"
 # define OPT_A 'a'
 # define OPT_L 'l'
 # define OPT_R 'r'
@@ -21,6 +21,7 @@
 # define OPT_T 't'
 # define OPT_1 '1'
 # define OPT_D 'd'
+# define OPT_P 'p'
 # define F_IS_SET(x, f) (x[f] == 1)
 # define F_SET(x, f) (x[f] = 1)
 # define F_UNSET(x, f) (x[f] = 0)

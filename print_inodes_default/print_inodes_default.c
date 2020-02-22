@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:13:46 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/02/20 04:16:13 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/02/22 22:10:20 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,22 @@ static void	fill_pointers(t_queue *inodes, t_cols_specs *cs)
 	}
 }
 
+static void	print_filename(t_inode *inode, int max_col_len, int is_last_col)
+{
+	char	*name;
+
+	name = inode->name;
+	if (F_IS_SET(g_options, OPT_P) && S_ISDIR(inode->st.st_mode))
+		name = ft_strjoin(name, "/");
+	if (is_last_col)
+		ft_printf("%s", name);
+	else
+		ft_printf("%-*s ", max_col_len, name);
+}
+
 void		print_inodes_default(t_queue *inodes)
 {
+	t_inode			*inode;
 	t_cols_specs	cs;
 	int				i;
 
@@ -82,11 +96,8 @@ void		print_inodes_default(t_queue *inodes)
 		i = 0;
 		while (i < cs.nb_pointers && cs.pointers[i])
 		{
-			if (i == cs.nb_pointers - 1)
-				ft_printf("%s", ((t_inode*)cs.pointers[i]->content)->name);
-			else
-				ft_printf("%-*s ", cs.max_col_len,
-					((t_inode*)cs.pointers[i]->content)->name);
+			inode = ((t_inode*)cs.pointers[i]->content);
+			print_filename(inode, cs.max_col_len, i == cs.nb_pointers - 1);
 			cs.pointers[i] = cs.pointers[i]->next;
 			i++;
 		}
