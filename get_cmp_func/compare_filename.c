@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_enqueue.c                                       :+:      :+:    :+:   */
+/*   compare_filename.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 20:19:41 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/17 16:58:50 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/02/19 19:07:26 by ylagtab           #+#    #+#             */
+/*   Updated: 2020/02/19 19:22:58 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_cmp_func.h"
 
-void	ft_enqueue(t_queue *queue, void *content, size_t content_size)
+int		compare_filename(t_list *node1, t_list *node2)
 {
-	t_list	*node;
-
-	if (queue == NULL)
-		return ;
-	node = ft_lstnew(content, content_size);
-	if (queue->length == 0)
-	{
-		queue->head = node;
-		queue->tail = node;
-		queue->length = 1;
-		return ;
-	}
-	queue->tail->next = node;
-	queue->tail = node;
-	queue->length++;
+	return (ft_strcmp(((t_inode*)node1->content)->name,
+		((t_inode*)node2->content)->name));
 }

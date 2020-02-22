@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_enqueue.c                                       :+:      :+:    :+:   */
+/*   list_directories.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 20:19:41 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/17 16:58:50 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/02/07 15:13:01 by mel-idri          #+#    #+#             */
+/*   Updated: 2020/02/20 02:39:29 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "list_directories.h"
 
-void	ft_enqueue(t_queue *queue, void *content, size_t content_size)
+void		list_directories(t_queue *dirs)
 {
-	t_list	*node;
+	t_list *directory;
 
-	if (queue == NULL)
-		return ;
-	node = ft_lstnew(content, content_size);
-	if (queue->length == 0)
+	directory = dirs->head;
+	while (directory)
 	{
-		queue->head = node;
-		queue->tail = node;
-		queue->length = 1;
-		return ;
+		list_dir(((t_inode*)directory->content));
+		directory = directory->next;
 	}
-	queue->tail->next = node;
-	queue->tail = node;
-	queue->length++;
 }

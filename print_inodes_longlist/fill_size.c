@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_enqueue.c                                       :+:      :+:    :+:   */
+/*   fill_size.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 20:19:41 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/17 16:58:50 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/02/18 09:46:19 by ylagtab           #+#    #+#             */
+/*   Updated: 2020/02/20 01:02:56 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "print_inodes_longlist.h"
 
-void	ft_enqueue(t_queue *queue, void *content, size_t content_size)
+void	fill_size(t_inode_details *i_details, t_ll_specs *ll_specs,
+	off_t st_size)
 {
-	t_list	*node;
+	int		size_len;
+	mode_t	st_mode;
 
-	if (queue == NULL)
-		return ;
-	node = ft_lstnew(content, content_size);
-	if (queue->length == 0)
-	{
-		queue->head = node;
-		queue->tail = node;
-		queue->length = 1;
-		return ;
-	}
-	queue->tail->next = node;
-	queue->tail = node;
-	queue->length++;
+	st_mode = i_details->st_mode;
+	if (S_ISBLK(st_mode) || S_ISCHR(st_mode))
+		size_len = 9;
+	else
+		size_len = ft_nbrlen(st_size);
+	i_details->size = st_size;
+	if (size_len > ll_specs->size_len)
+		ll_specs->size_len = size_len;
 }

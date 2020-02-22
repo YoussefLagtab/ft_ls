@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_enqueue.c                                       :+:      :+:    :+:   */
+/*   fill_nlink.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 20:19:41 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/17 16:58:50 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/02/18 09:46:09 by ylagtab           #+#    #+#             */
+/*   Updated: 2020/02/20 01:02:19 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "print_inodes_longlist.h"
 
-void	ft_enqueue(t_queue *queue, void *content, size_t content_size)
+void	fill_nlink(t_inode_details *i_details, t_ll_specs *ll_specs,
+	nlink_t st_nlink)
 {
-	t_list	*node;
+	int hl_len;
 
-	if (queue == NULL)
-		return ;
-	node = ft_lstnew(content, content_size);
-	if (queue->length == 0)
-	{
-		queue->head = node;
-		queue->tail = node;
-		queue->length = 1;
-		return ;
-	}
-	queue->tail->next = node;
-	queue->tail = node;
-	queue->length++;
+	hl_len = ft_nbrlen(st_nlink);
+	i_details->nlink = st_nlink;
+	if (hl_len > ll_specs->hard_links_len)
+		ll_specs->hard_links_len = hl_len;
 }

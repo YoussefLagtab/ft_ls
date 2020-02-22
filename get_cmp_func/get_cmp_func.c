@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_enqueue.c                                       :+:      :+:    :+:   */
+/*   get_cmp_func.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 20:19:41 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/17 16:58:50 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/02/07 15:12:19 by mel-idri          #+#    #+#             */
+/*   Updated: 2020/02/19 19:35:51 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_cmp_func.h"
 
-void	ft_enqueue(t_queue *queue, void *content, size_t content_size)
+t_cmp_func	get_cmp_func(void)
 {
-	t_list	*node;
+	static t_cmp_func cpm_func;
 
-	if (queue == NULL)
-		return ;
-	node = ft_lstnew(content, content_size);
-	if (queue->length == 0)
-	{
-		queue->head = node;
-		queue->tail = node;
-		queue->length = 1;
-		return ;
-	}
-	queue->tail->next = node;
-	queue->tail = node;
-	queue->length++;
+	if (cpm_func)
+		return (cpm_func);
+	if (F_IS_SET(g_options, OPT_T))
+		cpm_func = compare_mtime;
+	else
+		cpm_func = compare_atime;
+	return (cpm_func);
 }

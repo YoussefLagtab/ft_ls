@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_enqueue.c                                       :+:      :+:    :+:   */
+/*   new_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 20:19:41 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/17 16:58:50 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/02/02 11:21:57 by ylagtab           #+#    #+#             */
+/*   Updated: 2020/02/17 16:17:39 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_ls.h"
 
-void	ft_enqueue(t_queue *queue, void *content, size_t content_size)
+t_error	*new_error(t_error *error, char *path)
 {
-	t_list	*node;
-
-	if (queue == NULL)
-		return ;
-	node = ft_lstnew(content, content_size);
-	if (queue->length == 0)
-	{
-		queue->head = node;
-		queue->tail = node;
-		queue->length = 1;
-		return ;
-	}
-	queue->tail->next = node;
-	queue->tail = node;
-	queue->length++;
+	ft_bzero(error, sizeof(t_error));
+	error->arg = path;
+	error->error_no = errno;
+	return (error);
 }

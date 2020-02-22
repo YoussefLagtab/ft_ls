@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_enqueue.c                                       :+:      :+:    :+:   */
+/*   list_directories.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 20:19:41 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/17 16:58:50 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/02/19 23:24:50 by ylagtab           #+#    #+#             */
+/*   Updated: 2020/02/20 02:47:33 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIST_DIRECTORIES_H
+# define LIST_DIRECTORIES_H
 
-void	ft_enqueue(t_queue *queue, void *content, size_t content_size)
-{
-	t_list	*node;
+# include "../ft_ls.h"
 
-	if (queue == NULL)
-		return ;
-	node = ft_lstnew(content, content_size);
-	if (queue->length == 0)
-	{
-		queue->head = node;
-		queue->tail = node;
-		queue->length = 1;
-		return ;
-	}
-	queue->tail->next = node;
-	queue->tail = node;
-	queue->length++;
-}
+void	list_dir(t_inode *dir);
+void	list_subdirs(t_queue *inodes);
+void	get_dir_content(t_queue *dir_content, char *dir_path, t_inode *dir);
+
+#endif

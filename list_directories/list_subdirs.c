@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_enqueue.c                                       :+:      :+:    :+:   */
+/*   list_subdirs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 20:19:41 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/17 16:58:50 by ylagtab          ###   ########.fr       */
+/*   Created: 2020/02/07 14:51:00 by mel-idri          #+#    #+#             */
+/*   Updated: 2020/02/20 02:48:05 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "list_directories.h"
 
-void	ft_enqueue(t_queue *queue, void *content, size_t content_size)
+void	list_subdirs(t_queue *inodes)
 {
-	t_list	*node;
+	t_inode *inode;
+	int		is_current_dir;
+	int		is_parent_dir;
+	int		is_dir;
 
-	if (queue == NULL)
-		return ;
-	node = ft_lstnew(content, content_size);
-	if (queue->length == 0)
+	while (inodes->length)
 	{
-		queue->head = node;
-		queue->tail = node;
-		queue->length = 1;
-		return ;
+		inode = (t_inode*)ft_dequeue(inodes);
+		is_dir = S_ISDIR(inode->st.st_mode);
+		is_current_dir = ft_strequ(inode->name, ".");
+		is_parent_dir = ft_strequ(inode->name, "..");
+		if (is_dir && !is_current_dir && !is_parent_dir)
+			list_dir(inode);
 	}
-	queue->tail->next = node;
-	queue->tail = node;
-	queue->length++;
 }

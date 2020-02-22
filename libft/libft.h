@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:52 by mel-idri          #+#    #+#             */
-/*   Updated: 2019/12/25 18:34:46 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/02/19 15:47:55 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,5 +133,8 @@ t_bigint		*ft_bigint_from_uint128(__uint128_t unbr);
 t_bigint		*ft_bigint_power(unsigned int b, unsigned int exp);
 int				ft_bigint_print(t_bigint *bg_int);
 int				ft_bigint_is_zero(t_bigint *bg_int);
+char			*ft_strglue(char const *s1, char glue, char const *s2);
+char			*ft_strdup_free(const char **s);
+char			*ft_strjoin_free(char const *s1, char const *s2, int a, int b);
 
 #endif
