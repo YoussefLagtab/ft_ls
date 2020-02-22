@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 09:46:16 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/20 01:02:42 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/02/22 21:25:47 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ static char	get_inode_type(mode_t st_mode)
 		return ('l');
 	else if (S_ISSOCK(st_mode))
 		return ('s');
-	return ('u');
+	else if (S_ISWHT(st_mode))
+		return ('w');
+	return ('-');
 }
 
 void		fill_perm(t_inode_details *i_details)
