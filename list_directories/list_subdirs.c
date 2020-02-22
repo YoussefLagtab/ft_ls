@@ -24,8 +24,8 @@ void	list_subdirs(t_queue *inodes)
 		inode = (t_inode*)ft_dequeue(inodes);
 		is_dir = S_ISDIR(inode->st.st_mode);
 		is_current_dir = ft_strequ(inode->name, ".");
-		is_parrent_dir = ft_strequ(inode->name, "..");
-		if (is_dir && !is_current_dir && !is_parrent_dir)
+		is_parent_dir = ft_strequ(inode->name, "..");
+		if (is_dir && !is_current_dir && !is_parent_dir)
 			list_dir(inode);
 	}
 }
