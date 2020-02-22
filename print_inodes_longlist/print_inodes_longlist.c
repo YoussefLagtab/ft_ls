@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 19:32:43 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/20 02:49:32 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/02/22 12:54:04 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	print_inodes_longlist(t_queue *inodes, int is_dir)
 	t_queue			inodes_details;
 
 	ft_bzero(&ll_specs, sizeof(t_ll_specs));
-	ft_bzero(&i_details, sizeof(t_queue));
+	ft_bzero(&i_details, sizeof(t_inode_details));
+	ft_bzero(&inodes_details, sizeof(t_queue));
 	while (inodes->length)
 	{
 		inode = (t_inode*)ft_dequeue(inodes)->content;
