@@ -16,7 +16,7 @@ void	list_subdirs(t_queue *inodes)
 {
 	t_inode *inode;
 	int		is_current_dir;
-	int		is_parrent_dir;
+	int		is_parent_dir;
 	int		is_dir;
 
 	while (inodes->length)
