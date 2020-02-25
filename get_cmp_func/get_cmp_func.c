@@ -14,15 +14,15 @@
 
 t_cmp_func	get_cmp_func(void)
 {
-	static t_cmp_func cpm_func;
+	static t_cmp_func cmp_func;
 
-	if (cpm_func)
-		return (cpm_func);
+	if (cmp_func)
+		return (cmp_func);
 	if (F_IS_SET(g_options, OPT_T))
-		cpm_func = compare_mtime;
-	if (F_IS_SET(g_options, OPT_CAP_S))
+		cmp_func = compare_mtime;
+	else if (F_IS_SET(g_options, OPT_CAP_S))
 		cpm_func = compare_size;
 	else
-		cpm_func = compare_atime;
-	return (cpm_func);
+		cmp_func = compare_filename;
+	return (cmp_func);
 }
