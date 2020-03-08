@@ -13,7 +13,7 @@
 #ifndef TYPEDEFS_MACROS_H
 # define TYPEDEFS_MACROS_H
 
-# define OPTIONS "1adlrRtS"
+# define OPTIONS "1adlprRtS"
 # define OPT_A 'a'
 # define OPT_L 'l'
 # define OPT_R 'r'
@@ -22,6 +22,7 @@
 # define OPT_CAP_S 'S'
 # define OPT_1 '1'
 # define OPT_D 'd'
+# define OPT_P 'p'
 # define F_IS_SET(x, f) (x[f] == 1)
 # define F_SET(x, f) (x[f] = 1)
 # define F_UNSET(x, f) (x[f] = 0)
