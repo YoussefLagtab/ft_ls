@@ -6,7 +6,7 @@
 #    By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/28 10:58:34 by ylagtab           #+#    #+#              #
-#    Updated: 2020/02/22 21:18:26 by mel-idri         ###   ########.fr        #
+#    Updated: 2020/02/22 22:58:37 by mel-idri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ OBJ =	main.o \
 		get_cmp_func/compare_atime.o \
 		get_cmp_func/compare_filename.o \
 		get_cmp_func/compare_mtime.o \
+		get_cmp_func/compare_size.o \
 		get_cmp_func/get_cmp_func.o \
 		list_directories/get_dir_content.o \
 		list_directories/list_dir.o \

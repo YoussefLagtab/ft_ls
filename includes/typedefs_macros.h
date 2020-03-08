@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   typedefs_macros.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:53:26 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/22 21:59:16 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/02/22 22:59:48 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPEDEFS_MACROS_H
 # define TYPEDEFS_MACROS_H
 
-# define OPTIONS "1adlprtR"
+# define OPTIONS "1adlprRtS"
 # define OPT_A 'a'
 # define OPT_L 'l'
 # define OPT_R 'r'
 # define OPT_CAP_R 'R'
 # define OPT_T 't'
+# define OPT_CAP_S 'S'
 # define OPT_1 '1'
 # define OPT_D 'd'
 # define OPT_P 'p'

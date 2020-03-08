@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_cmp_func.c                                     :+:      :+:    :+:   */
+/*   compare_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/07 15:12:19 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/03/08 14:52:26 by mel-idri         ###   ########.fr       */
+/*   Created: 2020/02/22 22:39:33 by mel-idri          #+#    #+#             */
+/*   Updated: 2020/02/22 23:01:21 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_cmp_func.h"
 
-t_cmp_func	get_cmp_func(void)
+int		compare_size(t_list *node1, t_list *node2)
 {
-	static t_cmp_func cmp_func;
+    const t_inode   *inode1 = (t_inode*)node1->content;
+    const t_inode   *inode2 = (t_inode*)node2->content;
+    const off_t     inode1_size = inode1->st.st_size;
+    const off_t     inode2_size = inode2->st.st_size;
 
-	if (cmp_func)
-		return (cmp_func);
-	if (F_IS_SET(g_options, OPT_T))
-		cmp_func = compare_mtime;
-	else if (F_IS_SET(g_options, OPT_CAP_S))
-		cmp_func = compare_size;
-	else
-		cmp_func = compare_filename;
-	return (cmp_func);
+    if (inode1_size > inode2_size)
+		return (-1);
+	if (inode1_size < inode2_size)
+		return (1);
+	return (ft_strcmp(inode1->name, inode2->name));
 }
