@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_inodes_default.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:13:46 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/02/22 22:10:20 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/03/09 15:36:08 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	fill_pointers(t_queue *inodes, t_cols_specs *cs)
 		cs->nb_pointers--;
 	if (inodes->length % cs->nb_pointers != 0)
 		cs->nb_lines++;
-	(cs->pointers) = (t_list **)malloc(cs->nb_pointers * sizeof(t_list *));
+	(cs->pointers) = (t_list **)safe_malloc(cs->nb_pointers * sizeof(t_list *));
 	(cs->pointers)[0] = inodes->head;
 	i = 1;
 	while (i < cs->nb_pointers)

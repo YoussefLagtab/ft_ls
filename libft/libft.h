@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:52 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/02/19 15:47:55 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/03/09 15:44:03 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,5 +136,5 @@ int				ft_bigint_is_zero(t_bigint *bg_int);
 char			*ft_strglue(char const *s1, char glue, char const *s2);
 char			*ft_strdup_free(const char **s);
 char			*ft_strjoin_free(char const *s1, char const *s2, int a, int b);
-
+void			*safe_malloc(size_t size);
 #endif

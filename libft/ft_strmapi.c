@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 23:06:24 by mel-idri          #+#    #+#             */
-/*   Updated: 2019/10/07 14:09:42 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/03/09 15:35:45 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (s == NULL)
 		return (NULL);
-	if ((ns = (char*)malloc(ft_strlen(s) + 1)) == NULL)
+	if ((ns = (char*)safe_malloc(ft_strlen(s) + 1)) == NULL)
 		return (NULL);
 	i = 0;
 	while (s[i])
