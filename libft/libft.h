@@ -6,7 +6,7 @@
 /*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 19:28:52 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/03/09 15:44:03 by mel-idri         ###   ########.fr       */
+/*   Updated: 2020/03/09 18:38:02 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,4 +137,5 @@ char			*ft_strglue(char const *s1, char glue, char const *s2);
 char			*ft_strdup_free(const char **s);
 char			*ft_strjoin_free(char const *s1, char const *s2, int a, int b);
 void			*safe_malloc(size_t size);
+void			ft_free_queue(t_queue *queue);
 #endif
