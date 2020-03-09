@@ -6,7 +6,7 @@
 /*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:12:19 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/03/08 14:52:26 by mel-idri         ###   ########.fr       */
+/*   Updated: 2020/03/08 16:52:34 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@ t_cmp_func	get_cmp_func(void)
 	if (cmp_func)
 		return (cmp_func);
 	if (F_IS_SET(g_options, OPT_T))
-		cmp_func = compare_mtime;
+	{
+		if (F_IS_SET(g_options, OPT_U))
+			cmp_func = compare_atime;
+		else
+			cmp_func = compare_mtime;
+	}
 	else if (F_IS_SET(g_options, OPT_CAP_S))
 		cmp_func = compare_size;
 	else
