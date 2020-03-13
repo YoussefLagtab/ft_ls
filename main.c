@@ -6,7 +6,7 @@
 /*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 10:54:42 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/03/09 19:10:12 by mel-idri         ###   ########.fr       */
+/*   Updated: 2020/03/13 02:36:21 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static void	ft_ls(t_args *ls_args)
 {
 	print_errors(&(ls_args->errors));
 	print_inodes(&ls_args->files, 0);
-	ft_free_queue(&(ls_args->errors));
 	ft_free_queue(&(ls_args->files));
 	if (ls_args->files.length && ls_args->dirs.length)
 		ft_putstr("\n");
