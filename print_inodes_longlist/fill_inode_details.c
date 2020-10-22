@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_inode_details.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 09:38:22 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/03/08 16:04:18 by mel-idri         ###   ########.fr       */
+/*   Updated: 2020/10/22 11:28:17 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	fill_inode_details(t_inode_details *i_details, t_ll_specs *ll_specs,
 	fill_user(i_details, ll_specs, inode->st.st_uid);
 	fill_group(i_details, ll_specs, inode->st.st_gid);
 	fill_size(i_details, ll_specs, inode->st.st_size);
-	if (F_IS_SET(g_options, OPT_U))
+	if (g_options[OPT_U] == 1)
 		fill_time(i_details, ll_specs, inode->st.st_atimespec.tv_sec);
 	else
 		fill_time(i_details, ll_specs, inode->st.st_mtimespec.tv_sec);

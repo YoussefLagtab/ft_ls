@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_cmp_func.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:12:19 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/03/08 16:52:34 by mel-idri         ###   ########.fr       */
+/*   Updated: 2020/10/22 11:26:15 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ t_cmp_func	get_cmp_func(void)
 
 	if (cmp_func)
 		return (cmp_func);
-	if (F_IS_SET(g_options, OPT_T))
+	if (g_options[OPT_T] == 1)
 	{
-		if (F_IS_SET(g_options, OPT_U))
+		if (g_options[OPT_U] == 1)
 			cmp_func = compare_atime;
 		else
 			cmp_func = compare_mtime;
 	}
-	else if (F_IS_SET(g_options, OPT_CAP_S))
+	else if (g_options[OPT_CAP_S] == 1)
 		cmp_func = compare_size;
 	else
 		cmp_func = compare_filename;

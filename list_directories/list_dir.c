@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 23:24:35 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/20 04:21:08 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/22 11:27:05 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void		list_dir(t_inode *dir)
 	{
 		sort_list(&content, cmp_func);
 		print_inodes(&content, 1);
-		if (F_IS_SET(g_options, OPT_CAP_R))
+		if (g_options[OPT_CAP_R] == 1)
 			list_subdirs(&content);
 	}
 	free(full_dir_path);

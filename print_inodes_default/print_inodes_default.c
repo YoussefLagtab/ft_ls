@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_inodes_default.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:13:46 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/03/09 15:36:08 by mel-idri         ###   ########.fr       */
+/*   Updated: 2020/10/22 11:27:32 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	print_filename(t_inode *inode, int max_col_len, int is_last_col)
 	char	*name;
 
 	name = inode->name;
-	if (F_IS_SET(g_options, OPT_P) && S_ISDIR(inode->st.st_mode))
+	if (g_options[OPT_P] == 1 && S_ISDIR(inode->st.st_mode))
 		name = ft_strjoin(name, "/");
 	if (is_last_col)
 		ft_printf("%s", name);
@@ -87,7 +87,7 @@ void		print_inodes_default(t_queue *inodes)
 	cs.nb_cols = get_nb_cols();
 	if (inodes->length == 0)
 		return ;
-	if (cs.nb_cols == 0 || F_IS_SET(g_options, OPT_1) || isatty(1) == 0)
+	if (cs.nb_cols == 0 || g_options[OPT_1] == 1 || isatty(1) == 0)
 		return (print_one_entry_per_line(inodes));
 	cs.max_col_len = get_max_col_len(inodes->head);
 	fill_pointers(inodes, &cs);

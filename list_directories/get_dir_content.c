@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:12:28 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/02/20 00:26:28 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/22 11:26:32 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	get_dir_content(t_queue *dir_content, char *dir_path, t_inode *dir)
 		return (print_error(dir->name));
 	while ((dir_entry = readdir(current_dir)) != NULL)
 	{
-		if (dir_entry->d_name[0] == '.' && !F_IS_SET(g_options, OPT_A))
+		if (dir_entry->d_name[0] == '.' && g_options[OPT_A] != 1)
 			continue ;
 		add_inode_to_dir_content(dir_content, dir_path, dir_entry->d_name);
 	}

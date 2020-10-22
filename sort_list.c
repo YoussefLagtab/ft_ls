@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/25 22:34:05 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/02/22 16:08:39 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/22 11:26:00 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_list	*min_list(t_list *list1, t_list *list2,
 {
 	int	reverse;
 
-	reverse = F_IS_SET(g_options, OPT_R) ? -1 : 1;
+	reverse = g_options[OPT_R] == 1 ? -1 : 1;
 	return (reverse * comparator(list1, list2) < 0 ? list1 : list2);
 }
 

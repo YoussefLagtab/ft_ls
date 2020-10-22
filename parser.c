@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 10:23:55 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/19 19:38:39 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/10/22 11:30:04 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ static void		parse_opt(char *opt_str)
 	{
 		if (ft_strchr(OPTIONS, *opt_str))
 		{
-			F_SET(g_options, (int)*opt_str);
+			g_options[(int)*opt_str] = 1;
 			if (*opt_str == 'l')
-				F_UNSET(g_options, '1');
+				g_options['1'] = 0;
 			if (*opt_str == '1')
-				F_UNSET(g_options, 'l');
+				g_options['l'] = 0;
 		}
 		else
 			exit_illegal_opt(*opt_str);
@@ -74,9 +74,9 @@ static void		parse_args(t_args *ls_args, char **av)
 			continue ;
 		}
 		new_inode(&inode, &st, "", *av);
-		if (S_ISDIR(st.st_mode) && !F_IS_SET(g_options, OPT_D))
+		if (S_ISDIR(st.st_mode) && g_options[OPT_D] != 1)
 			ft_enqueue(&(ls_args->dirs), &inode, sizeof(t_inode));
-		else if (S_ISLNK(st.st_mode) && !F_IS_SET(g_options, OPT_D))
+		else if (S_ISLNK(st.st_mode) && g_options[OPT_D] != 1)
 			handle_link(&inode, ls_args);
 		else
 			ft_enqueue(&(ls_args->files), &inode, sizeof(t_inode));

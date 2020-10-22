@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   typedefs_macros.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:53:26 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/03/08 15:36:57 by mel-idri         ###   ########.fr       */
+/*   Updated: 2020/10/22 11:30:23 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@
 # define OPT_D 'd'
 # define OPT_P 'p'
 # define OPT_U 'u'
-# define F_IS_SET(x, f) (x[f] == 1)
-# define F_SET(x, f) (x[f] = 1)
-# define F_UNSET(x, f) (x[f] = 0)
 # define PATH_MAX 1024
 # define NAME_MAX 255
 # define SIX_MONTHS 15724800
