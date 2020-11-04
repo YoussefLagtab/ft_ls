@@ -43,10 +43,8 @@ static void	fill_pointers(t_queue *inodes, t_cols_specs *cs)
 	int		i;
 	int		j;
 
-	cs->nb_pointers = cs->nb_cols / cs->max_col_len;
+	cs->nb_pointers = cs->nb_cols / (cs->max_col_len + 1);
 	cs->nb_lines = inodes->length / cs->nb_pointers;
-	if ((cs->max_col_len + 1) * cs->nb_pointers > cs->nb_cols)
-		cs->nb_pointers--;
 	if (inodes->length % cs->nb_pointers != 0)
 		cs->nb_lines++;
 	(cs->pointers) = (t_list **)safe_malloc(cs->nb_pointers * sizeof(t_list *));
