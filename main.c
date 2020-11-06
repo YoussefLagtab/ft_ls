@@ -16,7 +16,9 @@ int	g_is_multi_dir_mode;
 
 static void	ft_ls(t_args *ls_args)
 {
-	print_errors(&(ls_args->errors));
+	sort_list(&ls_args->errors, compare_filename);
+	print_errors(&ls_args->errors);
+	sort_list(&ls_args->files, get_cmp_func());
 	print_inodes(&ls_args->files, 0);
 	ft_free_queue(&(ls_args->files));
 	if (ls_args->files.length && ls_args->dirs.length)

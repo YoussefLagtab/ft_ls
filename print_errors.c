@@ -26,7 +26,6 @@ void		print_errors(t_queue *errors)
 	t_list	*err_node;
 	t_error *err;
 
-	sort_list(errors, compare_filename);
 	while ((err_node = ft_dequeue(errors)))
 	{
 		err = (t_error*)err_node->content;
