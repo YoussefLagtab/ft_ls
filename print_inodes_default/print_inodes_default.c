@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:13:46 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/10/22 11:27:32 by ylagtab          ###   ########.fr       */
+/*   Updated: 2020/11/06 19:37:26 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ void		print_inodes_default(t_queue *inodes)
 	cs.nb_cols = get_nb_cols();
 	if (inodes->length == 0)
 		return ;
-	if (cs.nb_cols == 0 || g_options[OPT_1] == 1 || isatty(1) == 0)
-		return (print_one_entry_per_line(inodes));
 	cs.max_col_len = get_max_col_len(inodes->head);
+	if (cs.nb_cols <= cs.max_col_len || g_options[OPT_1] == 1 || isatty(1) == 0)
+		return (print_one_entry_per_line(inodes));
 	fill_pointers(inodes, &cs);
 	while (--cs.nb_lines >= 0)
 	{
