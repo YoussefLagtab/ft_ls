@@ -25,6 +25,7 @@ static void	ft_ls(t_args *ls_args)
 		ft_putstr("\n");
 	g_is_multi_dir_mode = ls_args->dirs.length > 1 || ls_args->files.length
 		|| ls_args->errors.length;
+	sort_list(&ls_args->dirs, get_cmp_func());
 	list_directories(&ls_args->dirs);
 }
 
