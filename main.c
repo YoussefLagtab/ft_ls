@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 10:54:42 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/03/13 02:36:21 by mel-idri         ###   ########.fr       */
+/*   Updated: 2021/01/09 18:24:55 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	ft_ls(t_args *ls_args)
 {
 	sort_list(&ls_args->errors, compare_filename);
 	print_errors(&ls_args->errors);
+	ft_free_queue(&(ls_args->errors));
 	sort_list(&ls_args->files, get_cmp_func());
 	print_inodes(&ls_args->files, 0);
 	ft_free_queue(&(ls_args->files));
@@ -27,6 +28,7 @@ static void	ft_ls(t_args *ls_args)
 		|| ls_args->errors.length;
 	sort_list(&ls_args->dirs, get_cmp_func());
 	list_directories(&ls_args->dirs);
+	ft_free_queue(&(ls_args->dirs));
 }
 
 int			main(int ac, char **av)
