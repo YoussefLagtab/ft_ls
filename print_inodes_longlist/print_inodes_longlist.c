@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_inodes_longlist.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 19:32:43 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/01/10 09:58:47 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/10 10:28:25 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void		print_inodes_longlist(t_queue *inodes, int is_dir)
 	t_ll_specs		ll_specs;
 	t_queue			inodes_details;
 	t_inode_details	*i_details;
+	t_list			*lst_node;
 
 	ft_bzero(&ll_specs, sizeof(t_ll_specs));
 	ft_bzero(&inodes_details, sizeof(t_queue));
@@ -52,8 +53,10 @@ void		print_inodes_longlist(t_queue *inodes, int is_dir)
 		ft_printf("total %d\n", ll_specs.total);
 	while (inodes_details.length)
 	{
-		i_details = ((t_inode_details*)ft_dequeue(&inodes_details)->content);
+		lst_node = ft_dequeue(&inodes_details);
+		i_details = (t_inode_details*)lst_node->content;
 		print_inode_details(i_details, &ll_specs);
 		free_i_details_content(i_details);
+		ft_memdel((void**)&lst_node);
 	}
 }
