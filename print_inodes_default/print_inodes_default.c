@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:13:46 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/11/06 19:37:26 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/10 09:38:27 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ static void	print_filename(t_inode *inode, int max_col_len, int is_last_col)
 		ft_printf("%s", name);
 	else
 		ft_printf("%-*s ", max_col_len, name);
+	ft_strdel(&name);
 }
 
 void		print_inodes_default(t_queue *inodes)
