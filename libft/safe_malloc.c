@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   safe_malloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 15:38:16 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/03/09 15:43:38 by mel-idri         ###   ########.fr       */
+/*   Updated: 2021/01/10 18:02:31 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	*safe_malloc(size_t size)
 
 	if ((ptr = malloc(size)) == NULL)
 		exit(1);
-	else 
+	else
 		return (ptr);
 }

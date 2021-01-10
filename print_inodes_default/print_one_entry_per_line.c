@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 01:17:38 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/10/22 11:27:56 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/10 18:17:34 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_one_entry_per_line(t_queue *inodes)
 	list_node = &inodes->head;
 	while (*list_node)
 	{
-		inode = (t_inode*) (*list_node)->content;
+		inode = (t_inode*)(*list_node)->content;
 		ft_printf("%s", inode->name);
 		if (g_options[OPT_P] == 1 && S_ISDIR(inode->st.st_mode))
 			ft_putchar('/');

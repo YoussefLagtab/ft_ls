@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 15:12:28 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/10/22 11:26:32 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/10 18:16:06 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	add_inode_to_dir_content(t_queue *dir_content, char *dir_path,
 	free(full_inode_path);
 }
 
-void	get_dir_content(t_queue *dir_content, char *dir_path, t_inode *dir)
+void		get_dir_content(t_queue *dir_content, char *dir_path, t_inode *dir)
 {
 	struct dirent	*dir_entry;
 	DIR				*current_dir;

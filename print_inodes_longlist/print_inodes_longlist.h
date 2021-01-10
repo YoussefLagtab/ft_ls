@@ -6,12 +6,12 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 09:39:11 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/20 02:33:20 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/10 18:18:25 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINT_INODES_H
-# define PRINT_INODES_H
+#ifndef PRINT_INODES_LONGLIST_H
+# define PRINT_INODES_LONGLIST_H
 
 # include <sys/ioctl.h>
 # include <pwd.h>

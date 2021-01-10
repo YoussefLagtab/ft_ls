@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conv_p.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 04:21:25 by mel-idri          #+#    #+#             */
-/*   Updated: 2019/11/27 18:37:57 by mel-idri         ###   ########.fr       */
+/*   Updated: 2021/01/10 18:21:33 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	conv_p(t_conv_spec *conv_spec, va_list *ap)
 		if (conv_spec->width && conv_spec->flags & FLAG_MINUS)
 			ft_putnchar(' ', conv_spec->width - 3);
 		va_end(ap2);
-		return (MAX(conv_spec->width, 3));
+		return (ft_max(conv_spec->width, 3));
 	}
 	va_end(ap2);
 	conv_spec->length = L;

@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 21:20:05 by mel-idri          #+#    #+#             */
-/*   Updated: 2019/12/12 19:43:56 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/10 18:21:38 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@
 # define INF 1
 # define NAN 2
 # define FLOAT 3
-# define IS_DIGIT(x) '0' <= x && x <= '9'
-# define ABS(number) number > 0 ? number : (-1) * number
-# define MAX(a, b) (a > b ? a : b)
 
 typedef	enum		e_length
 {

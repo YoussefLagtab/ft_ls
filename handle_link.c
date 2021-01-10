@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 16:37:23 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/10/22 11:23:02 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/10 18:14:10 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		handle_link(t_inode *inode, t_args *ls_args)
 {
 	int				end_with_slash;
 	int				is_symlink_to_dir;
-	struct  stat	st;
+	struct stat		st;
 
 	end_with_slash = inode->name[ft_strlen(inode->name) - 1] == '/';
 	is_symlink_to_dir = stat(inode->name, &st) == 0 && S_ISDIR(st.st_mode);
