@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 23:24:35 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/10/22 11:27:05 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/10 10:07:16 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void		list_dir(t_inode *dir)
 		print_inodes(&content, 1);
 		if (g_options[OPT_CAP_R] == 1)
 			list_subdirs(&content);
+		ft_free_queue(&content);
 	}
 	free(full_dir_path);
 }
