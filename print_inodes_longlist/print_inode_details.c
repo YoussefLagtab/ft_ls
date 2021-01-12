@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_inode_details.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 09:55:05 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/22 12:52:11 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/11 11:24:39 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ void	print_inode_details(t_inode_details *inode_details,
 
 	st_mode = inode_details->st_mode;
 	st_rdev = inode_details->st_rdev;
-	ft_printf("%s ", inode_details->perm);
-	ft_printf("%*hhd ", ll_specs->hard_links_len, inode_details->nlink);
+	ft_printf("%s", inode_details->perm);
+	ft_printf("%c ", inode_details->acl_ext);
+	ft_printf("%*hu ", ll_specs->hard_links_len, inode_details->nlink);
 	ft_printf("%-*s  ", ll_specs->user_len, inode_details->user);
 	ft_printf("%-*s  ", ll_specs->gr_len, inode_details->gr);
 	if (S_ISBLK(st_mode) || S_ISCHR(st_mode))
