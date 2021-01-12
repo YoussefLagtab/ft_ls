@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_inodes_longlist.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 19:32:43 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/01/10 10:28:25 by mel-idri         ###   ########.fr       */
+/*   Updated: 2021/01/12 10:04:41 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	fill_all_inode_details(t_queue *inodes, t_queue *inodes_details,
 	while (*list_node)
 	{
 		inode = (t_inode*)(*list_node)->content;
+		ft_bzero(&i_details, sizeof(t_inode_details));
 		fill_inode_details(&i_details, ll_specs, inode);
 		ll_specs->total += (size_t)inode->st.st_blocks;
 		ft_enqueue(inodes_details, &i_details, sizeof(t_inode_details));
