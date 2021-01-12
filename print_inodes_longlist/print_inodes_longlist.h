@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_inodes_longlist.h                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 09:39:11 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/01/12 09:47:35 by mel-idri         ###   ########.fr       */
+/*   Updated: 2021/01/12 10:05:20 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct	s_inode_details
 	dev_t	st_rdev;
 	mode_t	st_mode;
 	nlink_t	nlink;
-	char	perm[10];
+	char	perm[11];
 	char	acl_ext;
 }				t_inode_details;
 
