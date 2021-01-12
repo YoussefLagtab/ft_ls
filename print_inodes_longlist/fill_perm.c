@@ -6,7 +6,7 @@
 /*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 09:46:16 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/22 21:25:47 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/12 09:59:12 by ylagtab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,28 @@ static char	get_inode_type(mode_t st_mode)
 void		fill_perm(t_inode_details *i_details)
 {
 	int		i;
+	int		bit_index;
 	mode_t	st_mode;
 	char	*perms;
 
 	st_mode = i_details->st_mode;
 	i_details->perm[0] = get_inode_type(st_mode);
 	i = 1;
+	bit_index = 8;
 	perms = "xwr";
 	while (i < 10)
 	{
-		if (bit_is_set(st_mode, 10 - i - 1))
-			i_details->perm[i] = perms[(10 - i - 1) % 3];
+		if (bit_is_set(st_mode, bit_index))
+			i_details->perm[i] = perms[bit_index % 3];
 		else
 			i_details->perm[i] = '-';
-		i++;
+		++i;
+		--bit_index;
 	}
-	i = 0;
-	if (bit_is_set(st_mode, 9))
-		i_details->perm[9] = i_details->perm[9] == 'x' ? 't' : 'T';
-	if (bit_is_set(st_mode, 10))
-		i_details->perm[6] = i_details->perm[6] == 'x' ? 's' : 'S';
 	if (bit_is_set(st_mode, 11))
 		i_details->perm[3] = i_details->perm[3] == 'x' ? 's' : 'S';
+	if (bit_is_set(st_mode, 10))
+		i_details->perm[6] = i_details->perm[6] == 'x' ? 's' : 'S';
+	if (bit_is_set(st_mode, 9))
+		i_details->perm[9] = i_details->perm[9] == 'x' ? 't' : 'T';
 }
