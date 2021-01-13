@@ -6,7 +6,7 @@
 #    By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/28 10:58:34 by ylagtab           #+#    #+#              #
-#    Updated: 2020/02/22 22:58:37 by mel-idri         ###   ########.fr        #
+#    Updated: 2021/01/13 10:00:21 by mel-idri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,10 @@ NAME = ft_ls
 LIBFT = libft/libft.a
 
 # compilation variables
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
+ifeq ($(DEBUG), true)
+    CFLAGS += -g
+endif
 CC = gcc
 
 INC = ft_ls.h includes/typedefs_macros.h
