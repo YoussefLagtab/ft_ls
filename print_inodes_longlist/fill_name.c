@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_name.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 09:46:04 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/10/22 11:28:29 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/12 12:47:47 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ void	fill_name(t_inode_details *i_details, t_ll_specs *ll_specs,
 	i_details->name = ft_strdup((char *)inode->name);
 	if (S_ISLNK(inode->st.st_mode))
 	{
-		link_path = ft_strglue(inode->path, '/', inode->name);
-		if (link_path && (buf_size = readlink(link_path, buf, PATH_MAX)) != -1)
+		if (inode->path[0])
+			link_path = ft_strglue(inode->path, '/', inode->name);
+		else
+			link_path = ft_strdup(inode->name);
+		if ((buf_size = readlink(link_path, buf, PATH_MAX)) != -1)
 		{
 			buf[buf_size] = '\0';
 			i_details->name = ft_strjoin_free(i_details->name, " -> ", 1, 0);
