@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_link.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 16:37:23 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/01/10 18:14:10 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/12 12:34:43 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void		handle_link(t_inode *inode, t_args *ls_args)
 	{
 		if (g_options[OPT_L] != 1 || end_with_slash)
 		{
-			ft_enqueue(&(ls_args->dirs), &inode, sizeof(t_inode));
+			ft_enqueue(&(ls_args->dirs), inode, sizeof(t_inode));
 			return ;
 		}
 	}
-	ft_enqueue(&(ls_args->files), &inode, sizeof(t_inode));
+	ft_enqueue(&(ls_args->files), inode, sizeof(t_inode));
 }
