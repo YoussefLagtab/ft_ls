@@ -3,24 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   sort_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/25 22:34:05 by mel-idri          #+#    #+#             */
-/*   Updated: 2020/10/22 11:26:00 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:21:12 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
 static t_cmp_func g_ft_ls_compare;
+int	g_reverse_sort = 1;
 
 static t_list	*min_list(t_list *list1, t_list *list2,
 		int (*comparator)(t_list*, t_list*))
 {
-	int	reverse;
-
-	reverse = g_options[OPT_R] == 1 ? -1 : 1;
-	return (reverse * comparator(list1, list2) < 0 ? list1 : list2);
+	return (g_reverse_sort * comparator(list1, list2) < 0 ? list1 : list2);
 }
 
 static void		split_list(t_list *first_half, t_list **seconed_half,

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 10:55:09 by ylagtab           #+#    #+#             */
-/*   Updated: 2020/02/20 02:34:23 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:17:01 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "includes/typedefs_macros.h"
 # include "get_cmp_func/get_cmp_func.h"
 
+extern int	g_reverse_sort;
 t_inode		*new_inode(t_inode *inode, struct stat *st, char *path, char *name);
 t_error		*new_error(t_error *error, char *path);
 void		ft_parse(t_args *ls_args, char **av);

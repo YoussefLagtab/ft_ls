@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylagtab <ylagtab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 10:54:42 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/01/09 18:24:55 by ylagtab          ###   ########.fr       */
+/*   Updated: 2021/01/16 17:20:03 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ int	g_is_multi_dir_mode;
 
 static void	ft_ls(t_args *ls_args)
 {
-	sort_list(&ls_args->errors, compare_filename);
+	sort_list(&ls_args->errors, compare_error);
 	print_errors(&ls_args->errors);
 	ft_free_queue(&(ls_args->errors));
+	g_reverse_sort = g_options[OPT_R] == 1 ? -1 : 1;
 	sort_list(&ls_args->files, get_cmp_func());
 	print_inodes(&ls_args->files, 0);
 	ft_free_queue(&(ls_args->files));

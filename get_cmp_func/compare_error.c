@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_cmp_func.h                                     :+:      :+:    :+:   */
+/*   compare_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/19 17:04:19 by ylagtab           #+#    #+#             */
-/*   Updated: 2021/01/16 17:17:51 by mel-idri         ###   ########.fr       */
+/*   Created: 2021/01/16 16:55:34 by mel-idri          #+#    #+#             */
+/*   Updated: 2021/01/16 17:05:04 by mel-idri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_CMP_FUNC_H
-# define GET_CMP_FUNC_H
+#include "get_cmp_func.h"
 
-# include "../ft_ls.h"
-
-int			compare_atime(t_list *node1, t_list *node2);
-int			compare_mtime(t_list *node1, t_list *node2);
-int			compare_filename(t_list *node1, t_list *node2);
-int			compare_error(t_list *node1, t_list *node2);
-int			compare_size(t_list *node1, t_list *node2);
-t_cmp_func	get_cmp_func(void);
-
-#endif
+int		compare_error(t_list *node1, t_list *node2)
+{
+	return (ft_strcmp(((t_error*)node1->content)->arg,
+		((t_error*)node2->content)->arg));
+}

@@ -6,7 +6,7 @@
 #    By: mel-idri <mel-idri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/28 10:58:34 by ylagtab           #+#    #+#              #
-#    Updated: 2021/01/13 10:00:21 by mel-idri         ###   ########.fr        #
+#    Updated: 2021/01/16 17:33:22 by mel-idri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ OBJ =	main.o \
 		get_cmp_func/compare_mtime.o \
 		get_cmp_func/compare_size.o \
 		get_cmp_func/get_cmp_func.o \
+		get_cmp_func/compare_error.o \
 		list_directories/get_dir_content.o \
 		list_directories/list_dir.o \
 		list_directories/list_subdirs.o \
@@ -110,6 +111,8 @@ fclean: clean
 		rm -f $(NAME); \
 	fi;
 
-re: fclean all
+re:
+	$(MAKE) fclean
+	$(MAKE)	
 
 .PHONY: all fclean re clean libft
